@@ -59,7 +59,7 @@ app.post('/api/token', async (req, res) =>{
     res.json(data); //send token data back to frontend
 }); 
 
-//start the server on localhost:8000
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+//start the server on 127.0.0.1:8000
+app.listen(PORT,'127.0.0.1', () => {
+    console.log(`Server running at http://127.0.0.1:${PORT}`);
   });
