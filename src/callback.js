@@ -33,10 +33,12 @@ import { clientId, redirectUri } from './config.js';
     
       localStorage.setItem('access_token', data.access_token);
       localStorage.setItem('refresh_token', data.refresh_token);
+
+      window.location.href = '/index.html';
 })();
 
 //Use refresh token
-async function refreshAccessToken() {
+export async function refreshAccessToken() {
     const refreshToken = localStorage.getItem('refresh_token');
     if (!refreshToken) {
       console.error('No refresh token available.');
