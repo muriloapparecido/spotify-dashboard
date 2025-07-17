@@ -47,15 +47,23 @@ async function main() {
   const topTracks = await getTopTracks();
   const list = document.getElementById('track-list');
 
-  topTracks.forEach(({ name, artists, external_urls }) =>{
+  topTracks.forEach(({ name, artists, external_urls, album}) =>{
     const li = document.createElement('li');
 
+    //create image element
+    const img = document.createElement('img'); 
+    img.src = album.images[1]?.url || album.images[0]?.url; 
+    img.alt = `${name} album cover`; 
+    
+    //create text link element
     const link = document.createElement('a');
     link.href = external_urls.spotify;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = `${name} by ${artists.map((a) => a.name).join(', ')}`;
 
+    //combine image and link into list item
+    li.appendChild(img); 
     li.appendChild(link);
     list.appendChild(li); 
   })
