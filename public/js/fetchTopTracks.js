@@ -18,7 +18,7 @@ async function fetchWebApi(endpoint, method, body) {
       Authorization: `Bearer ${accessToken}`,
   }; 
   if (method !== 'GET'){
-    headers['Content-Type'] - 'applications/json'; 
+    headers['Content-Type'] = 'applications/json'; 
   }
 
   const res = await fetch(`https://api.spotify.com/${endpoint}`, {
@@ -37,7 +37,7 @@ async function getTopTracks(){
     'v1/me/top/tracks?time_range=short_term&limit=5', 'GET'
   );
 
-  return response?.item;
+  return response?.items;
 }
 
 async function main() {
@@ -47,11 +47,11 @@ async function main() {
   const topTracks = await getTopTracks();
   const list = document.getElementById('track-list');
 
-  topTracks.forEach(({ name, artists, eternal_urls }) =>{
+  topTracks.forEach(({ name, artists, external_urls }) =>{
     const li = document.createElement('li');
 
     const link = document.createElement('a');
-    link.href = eternal_urls.spotify;
+    link.href = external_urls.spotify;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = `${name} by ${artists.map((a) => a.name).join(', ')}`;
