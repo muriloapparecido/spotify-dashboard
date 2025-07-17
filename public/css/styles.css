@@ -36,6 +36,11 @@ li {
 
 }
 
+li:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
 img {
     width: 64px; 
     height: 64px; 
@@ -47,5 +52,9 @@ a {
     text-align: center; 
     text-decoration: none; 
     color: #e0e0ff; 
-
 }
+
+a:hover {
+    text-decoration: underline;
+    color: #1db954; 
+  }
