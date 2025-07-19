@@ -10,9 +10,15 @@ body {
     font-family: Arial, sans-serif;
 }
 
-h1 {
+.title {
     text-align: center;
     margin-top: 40px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
 }
 
 #track-list {
@@ -22,7 +28,7 @@ h1 {
     justify-content: space-between; 
 }
 
-li {
+.display-songs {
     display: flex; 
     flex-direction: column;
     align-items: center; 
@@ -37,25 +43,25 @@ li {
 
 }
 
-li:hover {
+.display-songs:hover {
     transform: scale(1.05);
     background-color: rgba(255, 255, 255, 0.15);
   }
 
-img {
+.album-cover {
     width: 64px; 
     height: 64px; 
     vertical-align: middle; 
     margin-bottom: 15px;  
 }
 
-a {
+.song-link {
     text-align: center; 
     text-decoration: none; 
     color: #e0e0ff; 
 }
 
-a:hover {
+.song-link:hover {
     text-decoration: underline;
     color: #1db954; 
   }

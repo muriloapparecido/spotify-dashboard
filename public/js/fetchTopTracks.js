@@ -49,11 +49,14 @@ async function main() {
 
   topTracks.forEach(({ name, artists, external_urls, album}) =>{
     const li = document.createElement('li');
+    li.classList.add('display-songs')
 
     //create image element
     const img = document.createElement('img'); 
     img.src = album.images[1]?.url || album.images[0]?.url; 
     img.alt = `${name} album cover`; 
+    img.classList.add('album-cover')
+
     
     //create text link element
     const link = document.createElement('a');
@@ -61,6 +64,7 @@ async function main() {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = `${name} by ${artists.map((a) => a.name).join(', ')}`;
+    link.classList.add('song-link')
 
     //combine image and link into list item
     li.appendChild(img); 

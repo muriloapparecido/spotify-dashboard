@@ -47,9 +47,7 @@ async function main() {
     const img = document.createElement('img'); 
     img.src = userProfile.images?.[0]?.url || ''; 
     img.alt = `${userProfile.display_name}'s Profile Picture`;
-    img.style.width = '100px';
-    img.style.height = '100px';
-    img.style.borderRadius = '50%'; 
+    img.classList.add('profile-image')
 
     list.appendChild(img); 
 }
