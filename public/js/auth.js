@@ -9,7 +9,7 @@ import { clientId, redirectUri} from './config.js';
     }
     
     const codeVerifier  = generateRandomString(64);
-    window.localStorage.setItem('code_verifier', codeVerifier);
+    window.sessionStorage.setItem('code_verifier', codeVerifier);
 
     //Hash code using SHA256 algorithm
     const sha256 = async (plain) => {

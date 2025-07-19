@@ -2,8 +2,8 @@ import  { refreshAccessToken } from './callback.js';
 
 //Ensure access token is valid
 async function ensureValidToken() {
-  const token = localStorage.getItem('access_token'); 
-  const expiresAt = localStorage.getItem('expires_at');
+  const token = sessionStorage.getItem('access_token'); 
+  const expiresAt = sessionStorage.getItem('expires_at');
 
   if (!token || !expiresAt || Date.now() > parseInt(expiresAt)) {
     console.log('Access token expired or missing. Refreshing...');
@@ -13,7 +13,7 @@ async function ensureValidToken() {
 
 //Make Web API call
 async function fetchWebApi(endpoint, method, body) {
-  const accessToken = localStorage.getItem('access_token'); 
+  const accessToken = sessionStorage.getItem('access_token'); 
   const headers = {
       Authorization: `Bearer ${accessToken}`,
   }; 

@@ -8,9 +8,9 @@
     return;
   }
 
-  const codeVerifier = localStorage.getItem('code_verifier');
+  const codeVerifier = sessionStorage.getItem('code_verifier');
   if (!codeVerifier) {
-    console.error('No code verifier found in localStorage');
+    console.error('No code verifier found in sessionStorage');
     return;
   }
 
@@ -33,9 +33,9 @@
     
   if (data.access_token) {  
     const expiresAt = Date.now() + data.expires_in * 1000; 
-    localStorage.setItem('access_token', data.access_token);
-    localStorage.setItem('refresh_token', data.refresh_token);
-    localStorage.setItem('expires_at', expiresAt.toString()); 
+    sessionStorage.setItem('access_token', data.access_token);
+    sessionStorage.setItem('refresh_token', data.refresh_token);
+    sessionStorage.setItem('expires_at', expiresAt.toString()); 
     window.location.href = '/index.html';
   } else {
     console.error('Failed to get access token: ', data); 
@@ -45,7 +45,7 @@
 
 //Use refresh token
 export async function refreshAccessToken() {
-  const refreshToken = localStorage.getItem('refresh_token');
+  const refreshToken = sessionStorage.getItem('refresh_token');
   if (!refreshToken) {
     console.error('No refresh token available.');
     return;
@@ -68,10 +68,10 @@ export async function refreshAccessToken() {
   
   if (data.access_token) {
     const expiresAt = Date.now() + data.expires_in * 1000; 
-    localStorage.setItem('access_token', data.access_token);
-    localStorage.setItem('expires_at', expiresAt.toString()); 
+    sessionStorage.setItem('access_token', data.access_token);
+    sessionStorage.setItem('expires_at', expiresAt.toString()); 
     if (data.refresh_token) {
-      localStorage.setItem('refresh_token', data.refresh_token);
+      sessionStorage.setItem('refresh_token', data.refresh_token);
     }
   } else {
     console.error('Failed to refresh token:', data);
