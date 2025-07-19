@@ -8,6 +8,8 @@ body {
     background: linear-gradient(to bottom, #1db954, black);
     color: white;
     font-family: Arial, sans-serif;
+    font-size: 16px; 
+    line-height: 1.5; 
 }
 
 .title {
@@ -15,11 +17,42 @@ body {
     margin-top: 40px;
 }
 
+#user-profile {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: flex-start; 
+    gap: 20px; 
+    padding-left: 115px; 
+}
+
 .profile-image {
     width: 100px;
     height: 100px;
     border-radius: 50%; 
 }
+
+h2 {
+    margin: 0px; 
+}
+
+.names {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-decoration: none; 
+    gap: 5px; 
+}
+
+.names h2 {
+    font-size: 1.5rem;
+    font-weight: bold; 
+}
+
+.names p {
+    color: #ccc; 
+    font-size: 1rem; 
+}
+
 
 #track-list {
     display: flex; 
@@ -40,14 +73,16 @@ body {
     padding: 12px;
     width: 150px; 
     height: auto;
+    min-height: 150px; 
     box-sizing: border-box;
     transition: transform 0.2s ease;
     word-wrap: break-word;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.display-songs:hover {
-    transform: scale(1.05);
+.display-songs:hover  {
+    transform: scale(1.10);
     background-color: rgba(255, 255, 255, 0.15);
   }
 
@@ -69,6 +104,7 @@ body {
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3; 
     -webkit-box-orient: vertical;
 }
 
@@ -76,3 +112,35 @@ body {
     text-decoration: underline;
     color: #1db954; 
 }
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.75rem;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #user-profile {
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;
+      padding: 20px; 
+      gap: 10px;
+    }
+  
+    .profile-image {
+      width: 80px;
+      height: 80px;
+    }
+  
+    #track-list {
+      padding: 20px 10px;
+      gap: 10px;
+    }
+  
+    .display-songs {
+      width: 100%;
+      max-width: 300px; 
+    }
+  }
+  

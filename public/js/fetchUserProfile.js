@@ -44,14 +44,24 @@ async function main() {
     const userProfile = await getUserProfile(); 
     const list = document.getElementById('user-profile')
 
+
     const img = document.createElement('img'); 
-    img.src = userProfile.images?.[0]?.url || ''; 
+    img.src = userProfile.images?.[0]?.url || '../imgs/default-avatar.png'; 
     img.alt = `${userProfile.display_name}'s Profile Picture`;
     img.classList.add('profile-image')
 
-    const name = 
+    const name = document.createElement('section'); 
+    name.classList.add('names')
+    const profileName = document.createElement('h2'); 
+    profileName.textContent = `${userProfile.display_name}`; 
+    const profileEmail = document.createElement('p'); 
+    profileEmail.textContent = `${userProfile.email}`; 
+  
 
-    list.appendChild(img); 
+    list.appendChild(img);
+    name.appendChild(profileName);
+    name.appendChild(profileEmail); 
+    list.appendChild(name); 
 }
   
 main();
