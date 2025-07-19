@@ -23,24 +23,27 @@ body {
 
 #track-list {
     display: flex; 
-    flex-direction: 'row'; 
-    align-items: 'center'; 
-    justify-content: space-between; 
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 20px; 
+    align-items: stretch; 
+    padding: 50px; 
+
 }
 
 .display-songs {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    align-items: center; 
-    margin: 20px; 
-    margin-top: 35px; 
-    max-width: 150px; 
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 12px; 
-    border-radius: 10px; 
-    max-height: 140px; 
-    min-width: 100px; 
-
+    border-radius: 10px;
+    padding: 12px;
+    width: 150px; 
+    height: auto;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+    word-wrap: break-word;
+    text-align: center;
 }
 
 .display-songs:hover {
@@ -49,19 +52,27 @@ body {
   }
 
 .album-cover {
-    width: 64px; 
-    height: 64px; 
+    width: 100px; 
+    height: 100px; 
     vertical-align: middle; 
-    margin-bottom: 15px;  
+    margin-bottom: 15px; 
+    
 }
 
 .song-link {
-    text-align: center; 
-    text-decoration: none; 
-    color: #e0e0ff; 
+    color: #e0e0ff;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.2em;
+    max-height: 3.6em; /* roughly 3 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .song-link:hover {
     text-decoration: underline;
     color: #1db954; 
-  }
+}

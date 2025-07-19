@@ -49,6 +49,8 @@ async function main() {
     img.alt = `${userProfile.display_name}'s Profile Picture`;
     img.classList.add('profile-image')
 
+    const name = 
+
     list.appendChild(img); 
 }
   

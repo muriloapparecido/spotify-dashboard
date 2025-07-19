@@ -34,7 +34,7 @@ async function fetchWebApi(endpoint, method, body) {
 async function getTopTracks(){
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
   const response = await fetchWebApi(
-    'v1/me/top/tracks?time_range=short_term&limit=5', 'GET'
+    'v1/me/top/tracks?time_range=short_term&limit=20', 'GET'
   );
 
   return response?.items;
