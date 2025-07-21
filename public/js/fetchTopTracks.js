@@ -46,6 +46,7 @@ export async function renderTopTracks(time_range = 'short_term'){
 
   const topTracks = await getTopTracks(time_range);
   const list = document.getElementById('track-list');
+  list.innerHTML = ''; //clear previous tracks if any
 
   topTracks.forEach(({ name, artists, external_urls, album}) =>{
     const li = document.createElement('li');

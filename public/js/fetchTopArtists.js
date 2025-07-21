@@ -46,6 +46,7 @@ export async function renderTopArtists(time_range = 'short_term') {
 
   const topArtists = await getTopArtists(time_range);
   const list = document.getElementById('artist-list');
+  list.innerHTML = ''; //clear previous artists if any
 
   topArtists.forEach(({ name, images, external_urls}) =>{
     const li = document.createElement('li');
