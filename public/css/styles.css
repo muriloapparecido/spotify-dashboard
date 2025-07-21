@@ -21,7 +21,7 @@ body {
     flex-direction: row; 
     justify-content: flex-start; 
     gap: 20px; 
-    padding-left: 115px; 
+    padding-left: 60px; 
 }
 
 .profile-image {
@@ -52,25 +52,48 @@ h2 {
     font-size: 1rem; 
 }
 
+.dropdown-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 20px 115px 0 60px;
+}
+  
+.dropdown-container label {
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 500;
+}
+  
+#time-range-selector {
+    font-size: 16px;
+    border-radius: 8px;
+    border: 2px solid black;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
 #bar-container {
     display: flex;
     justify-content: space-between;
     gap: 40px;
     padding: 40px 60px;
     flex-wrap: wrap;
-  }
+}
   
   .section {
     flex: 1;
     min-width: 300px;
-  }
+}
   
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
     border-bottom: 2px solid #1db954;
     padding-bottom: 10px;
-  }
+}
   
 
 
@@ -103,7 +126,7 @@ h2 {
 .display-songs:hover, .display-artists:hover  {
     transform: scale(1.10);
     background-color: rgba(255, 255, 255, 0.15);
-  }
+}
 
 .album-cover, .artist-image {
     width: 100px; 
@@ -150,6 +173,21 @@ h2 {
     .profile-image {
       width: 80px;
       height: 80px;
+    }
+
+    .dropdown-container {
+        justify-content: center;
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+    
+    .dropdown-container label {
+        font-size: 14px;
+    }
+    
+    #time-range-selector {
+        font-size: 14px;
+        padding: 5px 10px;
     }
   
     #track-list, #artist-list {
