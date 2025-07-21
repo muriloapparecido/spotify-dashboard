@@ -30,17 +30,20 @@ import { clientId, redirectUri} from './config.js';
     const hashed = await sha256(codeVerifier)
     const codeChallenge = base64encode(hashed);
 
-    //Request authorization from the user using a GET request by sending user to URI
-    const authUrl = new URL("https://accounts.spotify.com/authorize")
-    const params =  {
-    response_type: 'code',
-    client_id: clientId,
-    scope: 'user-read-private user-read-email user-top-read',
-    code_challenge_method: 'S256',
-    code_challenge: codeChallenge,
-    redirect_uri: redirectUri,
-    }
+    document.getElementById('spotify-login-button').addEventListener('click', async (e) => {
+        //Request authorization from the user using a GET request by sending user to URI
+        const authUrl = new URL("https://accounts.spotify.com/authorize")
+        const params =  {
+        response_type: 'code',
+        client_id: clientId,
+        scope: 'user-read-private user-read-email user-top-read',
+        code_challenge_method: 'S256',
+        code_challenge: codeChallenge,
+        redirect_uri: redirectUri,
+        }
 
-    authUrl.search = new URLSearchParams(params).toString();
-    window.location.href = authUrl.toString();
+        authUrl.search = new URLSearchParams(params).toString();
+        window.location.href = authUrl.toString();
+    })
+    
 })();
