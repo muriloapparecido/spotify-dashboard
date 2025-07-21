@@ -1,10 +1,10 @@
 html {
     margin: 0; 
-    padding: 0; 
+    padding: 0;
 }
 
 body {
-    background: linear-gradient(to bottom, #1db954, black);
+    background: linear-gradient(to bottom, black, #1db954);
     color: white;
     font-family: Arial, sans-serif;
     font-size: 16px; 
@@ -84,7 +84,7 @@ h2 {
 
 }
 
-.display-songs {
+.display-songs, .display-artists {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,8 +92,7 @@ h2 {
     border-radius: 10px;
     padding: 12px;
     width: 150px; 
-    height: auto;
-    min-height: 150px; 
+    height: 189px;
     box-sizing: border-box;
     transition: transform 0.2s ease;
     word-wrap: break-word;
@@ -101,12 +100,12 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.display-songs:hover  {
+.display-songs:hover, .display-artists:hover  {
     transform: scale(1.10);
     background-color: rgba(255, 255, 255, 0.15);
   }
 
-.album-cover {
+.album-cover, .artist-image {
     width: 100px; 
     height: 100px; 
     vertical-align: middle; 
@@ -114,7 +113,7 @@ h2 {
     
 }
 
-.song-link {
+.song-link, .artist-link {
     color: #e0e0ff;
     text-decoration: none;
     font-size: 14px;
@@ -128,7 +127,7 @@ h2 {
     -webkit-box-orient: vertical;
 }
 
-.song-link:hover {
+.song-link:hover, .artist-link:hover {
     text-decoration: underline;
     color: #1db954; 
 }
@@ -153,12 +152,12 @@ h2 {
       height: 80px;
     }
   
-    #track-list {
+    #track-list, #artist-list {
       padding: 20px 10px;
       gap: 10px;
     }
   
-    .display-songs {
+    .display-songs, .display-artists {
       width: 100%;
       max-width: 300px; 
     }
