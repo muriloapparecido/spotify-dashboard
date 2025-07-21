@@ -6,23 +6,29 @@
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-  <h1 class="title">Dashboard</h1>
-  <ul id="user-profile"></ul>
-  <script type = "module" src="./js/fetchUserProfile.js"></script>
+    <h1 class="title">Dashboard</h1>
+    <ul id="user-profile"></ul>
+    <script type = "module" src="./js/fetchUserProfile.js"></script>
 
-  <div id="bar-container">
-    <div class="section">
-        <h2 class="section-title">Top Tracks</h2>
-        <ul id="track-list"></ul>
+    <div id="bar-container">
+        <div class="section">
+            <h2 class="section-title">Top Tracks</h2>
+            <div class="dropdown-container">
+                <label for="time-range">Time Range:</label>
+                <select id="time-range-selector">
+                    <option value="short_term">Last 4 Weeks</option>
+                    <option value="medium_term">Last 6 Months</option>
+                    <option value="long_term">All Time</option>
+                </select>
+            </div>          
+            <ul id="track-list"></ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Top Songs</h2>
+            <ul id="artist-list"></ul>
+        </div>
     </div>
-    <div class="section">
-        <h2 class="section-title">Top Songs</h2>
-        <ul id="artist-list"></ul>
-    </div>
-  </div>
 
-
-  <script type="module" src="./js/fetchTopTracks.js"></script>
-  <script type="module" src="./js/fetchTopArtists.js"></script>
+    <script type="module" src="./js/initRender.js"></script>
 </body>
 </html>

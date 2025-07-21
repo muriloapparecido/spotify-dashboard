@@ -31,20 +31,20 @@ async function fetchWebApi(endpoint, method, body) {
 }
 
 //Get top tracks
-async function getTopTracks(){
+async function getTopTracks(time_range = 'short_term'){
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
   const response = await fetchWebApi(
-    'v1/me/top/tracks?time_range=short_term&limit=20', 'GET'
+    `v1/me/top/tracks?time_range=${time_range}&limit=20`, 'GET'
   );
 
   return response?.items;
 }
 
-async function main() {
+export async function renderTopTracks(time_range = 'short_term'){
   await ensureValidToken(); 
 
 
-  const topTracks = await getTopTracks();
+  const topTracks = await getTopTracks(time_range);
   const list = document.getElementById('track-list');
 
   topTracks.forEach(({ name, artists, external_urls, album}) =>{
@@ -71,6 +71,10 @@ async function main() {
     li.appendChild(link);
     list.appendChild(li); 
   })
+}
+
+async function main() {
+  renderTopTracks(); 
 }
   
 main();
