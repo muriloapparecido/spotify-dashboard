@@ -17,6 +17,27 @@ body {
     100% { background-position: 0% 50%; }
   }  
   
+  .auth-container {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+  }
+  
+  .auth-container h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+  
+  .auth-container .description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #b3b3b3;
+    line-height: 1.5;
+  }
+  
   #spotify-login-button {
     padding: 14px 28px;
     font-size: 20px;
