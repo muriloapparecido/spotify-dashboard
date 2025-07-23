@@ -31,15 +31,17 @@
   const data = await response.json();
       
     
-  if (data.access_token) {  
-    const expiresAt = Date.now() + data.expires_in * 1000; 
-    sessionStorage.setItem('access_token', data.access_token);
-    sessionStorage.setItem('refresh_token', data.refresh_token);
-    sessionStorage.setItem('expires_at', expiresAt.toString()); 
-    window.location.href = '/index.html';
-  } else {
-    console.error('Failed to get access token: ', data); 
-  }
+  setTimeout(()=> {  
+    if (data.access_token) {  
+      const expiresAt = Date.now() + data.expires_in * 1000; 
+      sessionStorage.setItem('access_token', data.access_token);
+      sessionStorage.setItem('refresh_token', data.refresh_token);
+      sessionStorage.setItem('expires_at', expiresAt.toString()); 
+      window.location.href = '/index.html';
+    } else {
+      console.error('Failed to get access token: ', data); 
+    }
+  }, 1500); 
 
 })();
 

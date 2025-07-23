@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(132deg, #191414, #1DB954, #121212, #25D865, #0a0a0a, #1DB954);
+    background-size: 400% 400%;
+    animation: BackgroundGradient 25s ease infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  @keyframes BackgroundGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  p {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px #00000066;
+  }
+
+  .loader {
+    border: 6px solid #282828;
+    border-top: 6px solid #1DB954;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

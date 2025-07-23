@@ -4,7 +4,7 @@ body {
     height: 100vh;
     background: linear-gradient(132deg, #191414, #1DB954, #121212, #25D865, #0a0a0a, #1DB954);
     background-size: 400% 400%;
-    animation: BackgroundGradient 15s ease infinite;
+    animation: BackgroundGradient 25s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
