@@ -15,13 +15,16 @@ body {
     text-align: center;
     margin-top: 40px;
 }
+.header {
+    display: flex; 
+    justify-content: space-between; 
+}
 
 #user-profile {
     display: flex; 
     flex-direction: row; 
     justify-content: flex-start; 
     gap: 20px; 
-    padding-left: 60px; 
 }
 
 .profile-image {
@@ -29,6 +32,25 @@ body {
     height: 100px;
     border-radius: 50%; 
 }
+
+
+.signout-button {
+    height: 40px;
+    width: 100px; 
+    margin-top: 50px; 
+    margin-right: 100px; 
+    border-radius: 20px;
+    background-color: #ff4c4c;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .signout-button:hover {
+    background-color: #e60000;
+  }
 
 h2 {
     margin: 0px; 

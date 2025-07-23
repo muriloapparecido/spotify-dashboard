@@ -5,4 +5,11 @@ document.getElementById('time-range-selector').addEventListener('change', async 
     const timeRange = e.target.value;
     await renderTopTracks(timeRange);
     await renderTopArtists(timeRange); 
-    });
+});
+
+document.querySelector('.signout-button').addEventListener('click', () => {
+    sessionStorage.removeItem('access_token');
+  
+    window.location.href = '/auth.html';
+  });
+  
