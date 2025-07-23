@@ -27,6 +27,26 @@
             <div class="track-header">
                 <h2 class="track-title">Top Tracks</h2>
                 <button class="playlist-button">Create Playlist</button>
+
+                    <!-- Playlist Naming Popup -->
+                    <div id="name-popup" class="popup hidden">
+                        <div class="popup-content">
+                            <p>Name your playlist:</p>
+                            <input type="text" id="playlist-name-input" placeholder="e.g. My Top 20 Tracks">
+                            <div class="popup-buttons">
+                                <button class="submit-popup">Create</button>
+                                <button class="close-name-popup">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Success Popup -->
+                    <div id="success-popup" class="popup hidden popup-buttons">
+                        <div class="popup-content">
+                        <p id="success-message">Playlist created!</p>
+                        <button class="close-success-popup">Close</button>
+                        </div>
+                    </div>
             </div>
             <ul id="track-list"></ul>
         </div>

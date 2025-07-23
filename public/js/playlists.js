@@ -32,7 +32,7 @@ async function fetchWebApi(endpoint, method, body) {
 }
 
 // Create a new playlist
-export async function createPlaylist(name = 'New Playlist', description = 'Top 20 tracks over the last ') {
+export async function createPlaylist(name = 'My Top 20 Tracks', description = 'Top 20 tracks over the last ') {
     await ensureValidToken();
     const user = await getUserProfile();
     const userId = user.id;
@@ -48,7 +48,7 @@ export async function createPlaylist(name = 'New Playlist', description = 'Top 2
 }
 
 async function main() {
-    createPlaylist(); 
+
 }
 
 main(); 
