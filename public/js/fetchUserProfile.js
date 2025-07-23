@@ -31,11 +31,9 @@ async function fetchWebApi(endpoint, method, body) {
 }
 
 //Get user profile
-async function getUserProfile(){
+export async function getUserProfile(){
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
-  const response = await fetchWebApi( 'v1/me', 'GET' );
-
-  return response;
+  return await fetchWebApi( 'v1/me', 'GET' );
 }
 
 async function main() {

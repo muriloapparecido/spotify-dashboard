@@ -36,7 +36,7 @@ import { clientId, redirectUri} from './config.js';
         const params =  {
         response_type: 'code',
         client_id: clientId,
-        scope: 'user-read-private user-read-email user-top-read',
+        scope: 'user-read-private user-read-email user-top-read playlist-modify-private playlist-modify-public',
         code_challenge_method: 'S256',
         code_challenge: codeChallenge,
         redirect_uri: redirectUri,
