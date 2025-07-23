@@ -48,9 +48,9 @@ export async function renderTopArtists(time_range = 'short_term') {
   const list = document.getElementById('artist-list');
   list.innerHTML = ''; //clear previous artists if any
 
-  topArtists.forEach(({ name, images, external_urls}) =>{
+  topArtists.forEach(({ name, images, external_urls}, index) =>{
     const li = document.createElement('li');
-    li.classList.add('display-artists')
+    li.classList.add('display-artists');
 
     //create image element
     const img = document.createElement('img'); 
@@ -67,9 +67,15 @@ export async function renderTopArtists(time_range = 'short_term') {
     link.textContent = name;
     link.classList.add('artist-link')
 
+    // create rank number
+    const rank = document.createElement('span');
+    rank.textContent = `${index + 1}. `;
+    rank.classList.add('artist-rank');
+
     //combine image and link into list item
     li.appendChild(img); 
     li.appendChild(link);
+    li.appendChild(rank);
     list.appendChild(li); 
   })
 }

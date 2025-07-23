@@ -48,7 +48,7 @@ export async function renderTopTracks(time_range = 'short_term'){
   const list = document.getElementById('track-list');
   list.innerHTML = ''; //clear previous tracks if any
 
-  topTracks.forEach(({ name, artists, external_urls, album}) =>{
+  topTracks.forEach(({ name, artists, external_urls, album}, index) =>{
     const li = document.createElement('li');
     li.classList.add('display-songs')
 
@@ -67,9 +67,15 @@ export async function renderTopTracks(time_range = 'short_term'){
     link.textContent = `${name} by ${artists.map((a) => a.name).join(', ')}`;
     link.classList.add('song-link')
 
+    // create rank number
+    const rank = document.createElement('span');
+    rank.textContent = `${index + 1}. `;
+    rank.classList.add('artist-rank');
+
     //combine image and link into list item
     li.appendChild(img); 
     li.appendChild(link);
+    li.appendChild(rank); 
     list.appendChild(li); 
   })
 }
