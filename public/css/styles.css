@@ -25,6 +25,7 @@ body {
     flex-direction: row; 
     justify-content: flex-start; 
     gap: 20px; 
+    margin-left: 18px; 
 }
 
 .profile-image {
@@ -109,14 +110,44 @@ h2 {
     flex: 1;
     min-width: 300px;
 }
+
+.track-header {
+    display:flex; 
+    justify-content: space-between; 
+    border-bottom: 2px solid #1db954;
+    height: 46px; 
+}
   
-  .section-title {
+.track-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.playlist-button {
+    background-color: #158443;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.playlist-button:hover {
+    background-color: #1db954;
+    transform: scale(1.05);
+}
+
+.artist-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
     border-bottom: 2px solid #1db954;
     padding-bottom: 10px;
 }
-  
 
 
 #track-list, #artist-list {
