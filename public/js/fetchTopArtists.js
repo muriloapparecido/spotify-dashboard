@@ -70,7 +70,7 @@ export async function renderTopArtists(time_range = 'short_term') {
     // create rank number
     const rank = document.createElement('span');
     rank.textContent = `${index + 1}. `;
-    rank.classList.add('artist-rank');
+    rank.classList.add('rank');
 
     //combine image and link into list item
     li.appendChild(img); 
