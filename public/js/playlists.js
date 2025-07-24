@@ -1,5 +1,6 @@
 import  { refreshAccessToken } from './callback.js'; 
 import { getUserProfile } from './fetchUserProfile.js';
+import { currentTopTracks } from './fetchTopTracks.js'; 
 
 //Ensure access token is valid
 async function ensureValidToken() {
@@ -36,6 +37,7 @@ export async function createPlaylist(name = 'My Top 20 Tracks', description = 'T
     await ensureValidToken();
     const user = await getUserProfile();
     const userId = user.id;
+    const timeRange = sessionStorage.getItem('time_range') || 'short_term'; 
   
     const playlistData = {
       name: name,
@@ -44,6 +46,16 @@ export async function createPlaylist(name = 'My Top 20 Tracks', description = 'T
     };
   
     const response = await fetchWebApi(`v1/users/${userId}/playlists`, 'POST', playlistData);
+
+    // Get top tracks and extract URIs
+    const playlistId = response.id; 
+    const trackUris = currentTopTracks.slice(0, 20).map(track => track.uri);
+
+    // Add tracks to the playlist
+    await fetchWebApi(`v1/playlists/${playlistId}/tracks`, 'POST', {
+      uris: trackUris,
+    });
+
     return response;
 }
 

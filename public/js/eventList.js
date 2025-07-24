@@ -32,7 +32,7 @@ function openNamePopup() {
   // User clicks "Create" in popup
 function submitPlaylistName() {
     const name = document.getElementById('playlist-name-input').value.trim();
-    const timeRange = sessionStorage.getItem('time_range') || 'short_term'; // fallback to short_term
+    const timeRange = sessionStorage.getItem('time_range') || 'short_term'; 
 
     // Human-readable time ranges
     const readableMap = {

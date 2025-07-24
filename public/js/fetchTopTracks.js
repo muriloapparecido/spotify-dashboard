@@ -31,7 +31,7 @@ async function fetchWebApi(endpoint, method, body) {
 }
 
 //Get top tracks
-async function getTopTracks(time_range = 'short_term'){
+export async function getTopTracks(time_range = 'short_term'){
   // Endpoint reference : https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks
   const response = await fetchWebApi(
     `v1/me/top/tracks?time_range=${time_range}&limit=20`, 'GET'
@@ -40,11 +40,15 @@ async function getTopTracks(time_range = 'short_term'){
   return response?.items;
 }
 
+//Save tracks globally
+export let currentTopTracks = []; 
+
 export async function renderTopTracks(time_range = 'short_term'){
   await ensureValidToken(); 
 
 
   const topTracks = await getTopTracks(time_range);
+  currentTopTracks = topTracks; 
   const list = document.getElementById('track-list');
   list.innerHTML = ''; //clear previous tracks if any
 
