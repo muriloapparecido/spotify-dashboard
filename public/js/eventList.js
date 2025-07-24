@@ -30,7 +30,7 @@ function openNamePopup() {
   }
   
   // User clicks "Create" in popup
-function submitPlaylistName() {
+async function submitPlaylistName() {
     const name = document.getElementById('playlist-name-input').value.trim();
     const timeRange = sessionStorage.getItem('time_range') || 'short_term'; 
 
@@ -42,14 +42,15 @@ function submitPlaylistName() {
     };
     const description = `Top 20 tracks of ${readableMap[timeRange] || 'last 4 weeks'}`;
 
-    if (!name) {
-      createPlaylist('My Top 20 Tracks', description);
-      showSuccessPopup(`Playlist "My Top 20 Tracks" created!`);
-    } else {
-        createPlaylist(name, description); 
-        showSuccessPopup(`Playlist "${name}" created!`);
-    }
-  
+
+    let finalName = name || 'My Top 20 Tracks';
+
+    const playlistId = await createPlaylist(finalName, description);
+    const url = `https://open.spotify.com/playlist/${playlistId}`;
+    window.open(url, '_blank');  // open in new tab
+
+    showSuccessPopup(`Playlist "${finalName}" created!`);
+
     closeNamePopup();
 }
   

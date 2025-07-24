@@ -37,7 +37,6 @@ export async function createPlaylist(name = 'My Top 20 Tracks', description = 'T
     await ensureValidToken();
     const user = await getUserProfile();
     const userId = user.id;
-    const timeRange = sessionStorage.getItem('time_range') || 'short_term'; 
   
     const playlistData = {
       name: name,
@@ -56,7 +55,8 @@ export async function createPlaylist(name = 'My Top 20 Tracks', description = 'T
       uris: trackUris,
     });
 
-    return response;
+
+    return playlistId;
 }
 
 async function main() {
