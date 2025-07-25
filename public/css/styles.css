@@ -3,9 +3,26 @@ html {
     padding: 0;
 }
 
+:root {
+    --bg-color-top: black;
+    --bg-color-bottom: #1db954; 
+    --text-color: white;
+    --description-text-color: #ccc; 
+    --border-color: #1db954; 
+    
+}
+
+body.light-mode {
+    --bg-color-top: #1db954;
+    --bg-color-bottom: white; 
+    --text-color: black;
+    --description-text-color: #555; 
+    --border-color: #158443
+}
+
 body {
-    background: linear-gradient(to bottom, black, #1db954);
-    color: white;
+    background: linear-gradient(to bottom, var(--bg-color-top), var(--bg-color-bottom));
+    color: var(--text-color);
     font-family: Arial, sans-serif;
     font-size: 16px; 
     line-height: 1.5; 
@@ -34,6 +51,11 @@ body {
     border-radius: 50%; 
 }
 
+.top-left {
+    display:flex; 
+    flex-direction: column;
+}
+
 
 .signout-button {
     height: 40px;
@@ -49,9 +71,23 @@ body {
     transition: background-color 0.2s ease;
   }
   
-  .signout-button:hover {
+.signout-button:hover {
     background-color: #e60000;
-  }
+}
+
+.change-button {
+    height: 40px;
+    width: 100px; 
+    margin-top: 20px; 
+    margin-right: 100px; 
+    border-radius: 20px;
+    background-color: white;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
 
 h2 {
     margin: 0px; 
@@ -71,7 +107,7 @@ h2 {
 }
 
 .names p {
-    color: #ccc; 
+    color: var(--description-text-color); 
     font-size: 1rem; 
 }
 
@@ -85,7 +121,7 @@ h2 {
   
 .dropdown-container label {
     font-size: 16px;
-    color: #ccc;
+    color: var(--description-text-color);
     font-weight: 500;
 }
   
@@ -114,7 +150,7 @@ h2 {
 .track-header {
     display:flex; 
     justify-content: space-between; 
-    border-bottom: 2px solid #1db954;
+    border-bottom: 2px solid var(--border-color);
     height: 46px; 
 }
   
@@ -202,7 +238,7 @@ h2 {
 .artist-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    border-bottom: 2px solid #1db954;
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: 10px;
 }
 
@@ -252,7 +288,7 @@ h2 {
 }
 
 .song-link, .artist-link {
-    color: #e0e0ff;
+    color: var(--description-text-color);
     text-decoration: none;
     font-size: 14px;
     line-height: 1.2em;

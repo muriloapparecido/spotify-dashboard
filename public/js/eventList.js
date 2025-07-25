@@ -15,6 +15,7 @@ document.querySelector('.signout-button').addEventListener('click', async () => 
     window.location.href = '/auth.html';
 });
 
+
 document.querySelector('.playlist-button').addEventListener('click', openNamePopup); 
 
 document.querySelector('.submit-popup').addEventListener('click', submitPlaylistName); 
@@ -23,6 +24,23 @@ document.querySelector('.close-name-popup').addEventListener('click', closeNameP
 
 document.querySelector('.close-success-popup').addEventListener('click', closeSuccessPopup); 
 
+
+//Change the background color scheme 
+
+// Apply saved theme if present
+if (sessionStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-mode');
+}
+
+document.querySelector('.change-button').addEventListener('click', async () => {
+    document.body.classList.toggle("light-mode");
+    const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
+    sessionStorage.setItem('theme', theme); 
+
+})
+
+function changeTheme() {
+}
 
 // Called when user clicks "Create Playlist"
 function openNamePopup() {
