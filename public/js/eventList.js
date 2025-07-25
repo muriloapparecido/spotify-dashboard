@@ -1,6 +1,7 @@
 import { renderTopTracks } from './fetchTopTracks.js';
 import { renderTopArtists } from './fetchTopArtists.js';
 import { createPlaylist } from './playlists.js';
+import { renderTopGenre } from './topGenre.js'; 
 
 
 //Allow user to change time period in which top songs and artist are shown
@@ -9,6 +10,7 @@ document.getElementById('time-range-selector').addEventListener('change', async 
     sessionStorage.setItem('time_range', timeRange);
     await renderTopTracks(timeRange);
     await renderTopArtists(timeRange); 
+    await renderTopGenre(); 
 });
 
 //Removes the access token, signing the user out and navigating them back to the auth screen 

@@ -111,6 +111,13 @@ h2 {
     font-size: 1rem; 
 }
 
+.time-genre {
+    display:flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+}
+
+
 .dropdown-container {
     display: flex;
     align-items: center;
@@ -132,6 +139,13 @@ h2 {
     background-color: #f9f9f9;
     transition: border-color 0.3s ease;
     cursor: pointer;
+}
+
+
+#display-genre {
+    padding: 20px 215px 0 60px;
+
+    color: red; 
 }
 
 #bar-container {

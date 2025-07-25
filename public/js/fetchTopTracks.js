@@ -1,7 +1,7 @@
 import  { refreshAccessToken } from './callback.js'; 
 
 //Ensure access token is valid
-async function ensureValidToken() {
+export async function ensureValidToken() {
   const token = sessionStorage.getItem('access_token'); 
   const expiresAt = sessionStorage.getItem('expires_at');
 
@@ -12,7 +12,7 @@ async function ensureValidToken() {
 }
 
 //Make Web API call
-async function fetchWebApi(endpoint, method, body) {
+export async function fetchWebApi(endpoint, method, body) {
   const accessToken = sessionStorage.getItem('access_token'); 
   const headers = {
       Authorization: `Bearer ${accessToken}`,

@@ -16,15 +16,18 @@
     </div>
     <script type = "module" src="./js/fetchUserProfile.js"></script>
 
-    <div class="dropdown-container">
-        <label for="time-range">Time Range:</label>
-        <select id="time-range-selector">
-            <option value="short_term">Last 4 Weeks</option>
-            <option value="medium_term">Last 6 Months</option>
-            <option value="long_term">All Time</option>
-        </select>
-    </div>          
-
+    <div class="time-genre">
+        <div class="dropdown-container">
+            <label for="time-range">Time Range:</label>
+            <select id="time-range-selector">
+                <option value="short_term">Last 4 Weeks</option>
+                <option value="medium_term">Last 6 Months</option>
+                <option value="long_term">All Time</option>
+            </select>
+        </div>  
+        <p id="display-genre">Top Genre: </p>        
+    </div>
+        
     <div id="bar-container">
         <div class="section">
             <div class="track-header">
