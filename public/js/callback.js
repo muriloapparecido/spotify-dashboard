@@ -1,3 +1,19 @@
+function showErrorPopup() {
+  const message = document.createElement('div');
+  message.innerHTML = `
+    <div class="error-popup">
+      <p>Something went wrong while authorizing with Spotify.<br>Please go back and try again.</p>
+      <button id="retry">Return to Login</button>
+    </div>
+  `;
+  document.body.appendChild(message);
+
+  document.getElementById('retry').onclick = () => {
+    window.location.href = '/auth.html';
+  };
+}
+
+
 //Handles spotify redirect
 (async () => {
 
@@ -40,6 +56,7 @@
       window.location.href = '/index.html';
     } else {
       console.error('Failed to get access token: ', data); 
+      showErrorPopup(); 
     }
   }, 1500); 
 
