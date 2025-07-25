@@ -2,6 +2,8 @@ import { renderTopTracks } from './fetchTopTracks.js';
 import { renderTopArtists } from './fetchTopArtists.js';
 import { createPlaylist } from './playlists.js';
 
+
+//Allow user to change time period in which top songs and artist are shown
 document.getElementById('time-range-selector').addEventListener('change', async (e) => {
     const timeRange = e.target.value;
     sessionStorage.setItem('time_range', timeRange);
@@ -9,21 +11,12 @@ document.getElementById('time-range-selector').addEventListener('change', async 
     await renderTopArtists(timeRange); 
 });
 
+//Removes the access token, signing the user out and navigating them back to the auth screen 
 document.querySelector('.signout-button').addEventListener('click', async () => {
     sessionStorage.removeItem('access_token');
   
     window.location.href = '/auth.html';
 });
-
-
-document.querySelector('.playlist-button').addEventListener('click', openNamePopup); 
-
-document.querySelector('.submit-popup').addEventListener('click', submitPlaylistName); 
-
-document.querySelector('.close-name-popup').addEventListener('click', closeNamePopup); 
-
-document.querySelector('.close-success-popup').addEventListener('click', closeSuccessPopup); 
-
 
 //Change the background color scheme 
 
@@ -39,8 +32,14 @@ document.querySelector('.change-button').addEventListener('click', async () => {
 
 })
 
-function changeTheme() {
-}
+//Playlist popup logic
+document.querySelector('.playlist-button').addEventListener('click', openNamePopup); 
+
+document.querySelector('.submit-popup').addEventListener('click', submitPlaylistName); 
+
+document.querySelector('.close-name-popup').addEventListener('click', closeNamePopup); 
+
+document.querySelector('.close-success-popup').addEventListener('click', closeSuccessPopup); 
 
 // Called when user clicks "Create Playlist"
 function openNamePopup() {
@@ -88,4 +87,3 @@ function showSuccessPopup(message) {
 function closeSuccessPopup() {
     document.getElementById('success-popup').classList.add('hidden');
 }
-  
