@@ -143,9 +143,8 @@ h2 {
 
 
 #display-genre {
-    padding: 20px 215px 0 60px;
-
-    color: red; 
+    color: var(--description-text-color); 
+    padding: 20px 110px 0 60px;
 }
 
 #bar-container {

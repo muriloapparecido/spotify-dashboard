@@ -56,13 +56,13 @@ async function getTopGenre(){
         }
     }
 
-    return topGenre;
+    return topGenre.charAt(0).toUpperCase() + topGenre.slice(1); //Capitalize
 }
 
 export async function renderTopGenre(){
-    const displayedGenre = await getTopGenre(); 
-    console.log(displayedGenre); 
-
     const tag = document.getElementById('display-genre'); 
+    tag.textContent = 'Loading top genre...';
+
+    const displayedGenre = await getTopGenre(); 
     tag.textContent = `Your Top Genre: ${displayedGenre}`
 }

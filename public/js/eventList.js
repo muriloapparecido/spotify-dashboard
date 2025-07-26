@@ -3,6 +3,10 @@ import { renderTopArtists } from './fetchTopArtists.js';
 import { createPlaylist } from './playlists.js';
 import { renderTopGenre } from './topGenre.js'; 
 
+await renderTopTracks();
+await renderTopArtists(); 
+await renderTopGenre(); 
+
 
 //Allow user to change time period in which top songs and artist are shown
 document.getElementById('time-range-selector').addEventListener('change', async (e) => {
