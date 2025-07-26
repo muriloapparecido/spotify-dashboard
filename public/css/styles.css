@@ -111,10 +111,29 @@ h2 {
     font-size: 1rem; 
 }
 
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; 
+    width: 100%;
+    position: fixed; 
+    top: 100px; 
+}
+
+canvas {
+    max-width: 400px;
+    max-height: 200px;
+    width: 100%;  
+    height: auto;
+}
+
+
 .time-genre {
     display:flex; 
     flex-direction: row; 
     justify-content: space-between; 
+    margin-top: 75px; 
 }
 
 

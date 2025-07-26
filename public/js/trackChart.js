@@ -33,6 +33,7 @@ export function renderComparisonChart( shortTermTracks, longTermTracks) {
                 y: {
                     beginAtZero: true,
                     ticks: {
+                        color: '#ffffff', 
                         precision: 0
                     }
                 }
