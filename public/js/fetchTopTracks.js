@@ -84,6 +84,21 @@ export async function renderTopTracks(time_range = 'short_term'){
   })
 }
 
+export async function getTopTrackNames(time_range = 'short_term'){
+  await ensureValidToken(); 
+
+
+  const topTracks = await getTopTracks(time_range);
+  currentTopTracks = topTracks; 
+
+  const topTracksName = []; 
+  topTracks.forEach(({name}) => {
+    topTracksName.push(name); 
+  }); 
+
+  return topTracksName; 
+}
+
 async function main() {
   renderTopTracks(); 
 }
