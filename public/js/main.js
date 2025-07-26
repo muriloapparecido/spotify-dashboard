@@ -8,9 +8,10 @@ await renderTopTracks();
 await renderTopArtists(); 
 await renderTopGenre(); 
 
-const shortTermTracks = await getTopTrackNames('short_term'); 
+const shortTermTracks = await getTopTrackNames('short_term');
+const midTermTracks = await getTopTrackNames('medium_term') 
 const longTermTracks = await getTopTrackNames('long_term');
-renderComparisonChart(shortTermTracks, longTermTracks);
+renderComparisonChart(shortTermTracks, midTermTracks, longTermTracks);
 
 //Allow user to change time period in which top songs and artist are shown
 document.getElementById('time-range-selector').addEventListener('change', async (e) => {
