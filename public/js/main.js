@@ -66,7 +66,7 @@ async function submitPlaylistName() {
     const readableMap = {
         short_term: 'the last 4 weeks',
         medium_term: 'the last 6 months',
-        long_term: 'all time',
+        long_term: 'the last year',
     };
     const description = `Top 20 tracks of ${readableMap[timeRange] || 'last 4 weeks'}`;
 
