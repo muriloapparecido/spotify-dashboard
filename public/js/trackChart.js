@@ -24,6 +24,41 @@ export function renderComparisonChart( shortTermTracks, midTermTracks, longTermT
         options: {
             responsive: true,
             plugins: {
+                tooltip: {  
+                    callbacks: {
+                        // Customizes the label shown on hover
+                        label: function(context) {
+                            const index = context.dataIndex;
+              
+                            const songLists = [
+                                overlap,            // Core Rotation
+                                uniqueToShort,      // New Additions
+                                uniqueToMedium,     // Faded Stars
+                                uniqueToLong        // Retired Favorites
+                            ];
+              
+                            const categorySongs = songLists[index];
+              
+                            if (categorySongs.length === 0) {
+                                return "No songs";
+                            }
+              
+                            // Get first 8 songs and format them as bullet points
+                            const formatted = categorySongs.slice(0, 8).map((song) => `• ${song}`);
+                            // If more than 10 songs, let the user know how many are hidden
+                            const extra = categorySongs.length > 8
+                                ? [`...and ${categorySongs.length - 8} more`] 
+                                : [];
+              
+                            // Return an array: the first line shows the count, the rest are song names
+                            return [
+                                `${context.label}: ${categorySongs.length} tracks`, 
+                                ...formatted, 
+                                ...extra
+                            ];
+                        }
+                    }
+                }, 
                 legend: { display: false },
                 title: {
                     display: true,

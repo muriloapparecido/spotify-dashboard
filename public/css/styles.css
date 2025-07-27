@@ -120,6 +120,7 @@ h2 {
     position: relative; 
     margin-top: -200px; 
     pointer-events: none; 
+    overflow: visible; 
 }
 
 canvas {
@@ -127,6 +128,7 @@ canvas {
     max-height: 200px;
     width: 100%;  
     height: auto;
+    pointer-events: auto; 
 }
 
 
