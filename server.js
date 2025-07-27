@@ -2,22 +2,26 @@ import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config(); 
 
 const app = express(); 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Enable CORS so the frontend can talk to this server
 app.use(cors()); 
-
-app.use(express.static('public'));
-console.log('Redirect URI used:', process.env.SPOTIFY_REDIRECT_URI);
 
 
 //Enable parsing of JSON and URL-encoded data in requests
 app.use(express.json());
 app.use(express.urlencoded({ extended: true})); 
+
+// Handle static files in production
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Define a POST route to exchange authorization code for access + refresh tokens
 app.post('/api/token', async (req, res) =>{
@@ -42,24 +46,31 @@ app.post('/api/token', async (req, res) =>{
     } else {
       return res.status(400).json({ error: 'Missing required parameters.' });
     }
-  
-    const response = await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Basic ' + Buffer.from(
-          process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
-        ).toString('base64'),
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body
-    });
-  
+    try { 
+      const response = await fetch('https://accounts.spotify.com/api/token', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Basic ' + Buffer.from(
+            process.env.SPOTIFY_CLIENT_ID + ':' + process.env.SPOTIFY_CLIENT_SECRET
+          ).toString('base64'),
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body
+      });
 
-    const data = await response.json();  // get the access_token and refresh_token
-    res.json(data); //send token data back to frontend
+      const data = await response.json(); // get the access_token and refresh_token
+      res.json(data); //send token data back to frontend
+    } catch (error) {
+      console.error('Error exchanging token:', error);
+      res.status(500).json({ error: 'Token exchange failed.' });
+    }
 }); 
 
-//start the server on 127.0.0.1:8000
-app.listen(PORT,'127.0.0.1', () => {
-    console.log(`Server running at http://127.0.0.1:${PORT}`);
-  });
+// Start server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${PORT}`);
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'auth.html'));
+});
