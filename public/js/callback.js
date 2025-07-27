@@ -36,7 +36,7 @@ function showErrorPopup() {
   }).toString();
 
   // Send to backend to exchange for tokens securely
-  const response = await fetch('http://127.0.0.1:8000/api/token', {
+  const response = await fetch('https://spotify-dashboard-xrkr.onrender.com/api/token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded', 
@@ -75,7 +75,7 @@ export async function refreshAccessToken() {
     refresh_token: refreshToken, 
   }).toString();
 
-  const response = await fetch('http://127.0.0.1:8000/api/token', {
+  const response = await fetch('https://spotify-dashboard-xrkr.onrender.com/api/token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'

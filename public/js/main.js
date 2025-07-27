@@ -4,6 +4,14 @@ import { createPlaylist } from './playlists.js';
 import { renderTopGenre } from './topGenre.js'; 
 import { renderComparisonChart } from './trackChart.js'; 
 
+//handle redirection if needed
+const token = sessionStorage.getItem('access_token');
+
+if (!token) {
+  window.location.href = '/auth.html'; // Adjust path if needed
+}
+
+//Initial calls
 await renderTopTracks();
 await renderTopArtists(); 
 await renderTopGenre(); 

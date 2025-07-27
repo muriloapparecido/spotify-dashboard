@@ -72,5 +72,11 @@ app.listen(PORT, '0.0.0.0', () => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'auth.html'));
+  const scopes = 'user-read-private user-read-email playlist-read-private';
+  const redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
+  const client_id = process.env.SPOTIFY_CLIENT_ID;
+  
+  const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${client_id}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+
+  res.redirect(authUrl);
 });
