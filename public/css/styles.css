@@ -126,9 +126,6 @@ h2 {
     100% { transform: rotate(360deg); }
   }
 
-#chartContainer {
-    display: none; 
-}
 
 #chart-section{
     display: flex;
