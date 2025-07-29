@@ -18,6 +18,18 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true})); 
 
+
+// Redirect '/' to Spotify Auth Flow before serving static files
+app.get('/', (req, res) => {
+  const scopes = 'user-read-private user-read-email playlist-read-private';
+  const redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
+  const client_id = process.env.SPOTIFY_CLIENT_ID;
+  
+  const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${client_id}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
+
+  res.redirect(authUrl);
+});
+
 // Handle static files in production
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -69,14 +81,4 @@ app.post('/api/token', async (req, res) =>{
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running at http://0.0.0.0:${PORT}`);
-});
-
-app.get('/', (req, res) => {
-  const scopes = 'user-read-private user-read-email playlist-read-private';
-  const redirect_uri = process.env.SPOTIFY_REDIRECT_URI;
-  const client_id = process.env.SPOTIFY_CLIENT_ID;
-  
-  const authUrl = `https://accounts.spotify.com/authorize?response_type=code&client_id=${client_id}&scope=${encodeURIComponent(scopes)}&redirect_uri=${encodeURIComponent(redirect_uri)}`;
-
-  res.redirect(authUrl);
 });
