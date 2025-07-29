@@ -111,6 +111,25 @@ h2 {
     font-size: 1rem; 
 }
 
+
+.loader {
+    border: 6px solid #282828;
+    border-top: 6px solid #1DB954;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+#chartContainer {
+    display:none
+}
+
 .chart-container {
     display: flex;
     justify-content: center;
