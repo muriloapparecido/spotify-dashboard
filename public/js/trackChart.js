@@ -83,7 +83,7 @@ export function renderComparisonChart( shortTermTracks, midTermTracks, longTermT
         }); 
 
         //Hide loader, show chart
-        document.getElementById(chartLoader).style.display = "none"; 
-        document.getElementById(chartContainer).style.display = "block"
+        document.getElementById("chartLoader").style.display = "none"; 
+        document.getElementById("chartContainer").style.display = "block"
     }, 300); 
 }

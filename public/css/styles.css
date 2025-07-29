@@ -127,7 +127,7 @@ h2 {
   }
 
 #chartContainer {
-    display:none
+    display: none; 
 }
 
 .chart-container, #chart-section{
