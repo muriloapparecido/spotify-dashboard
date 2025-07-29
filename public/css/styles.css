@@ -130,7 +130,7 @@ h2 {
     display: none; 
 }
 
-.chart-container, #chart-section{
+#chart-section{
     display: flex;
     justify-content: center;
     align-items: center;
