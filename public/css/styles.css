@@ -137,6 +137,9 @@ h2 {
     margin-top: -200px; 
     pointer-events: none; 
     overflow: visible; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 canvas {
