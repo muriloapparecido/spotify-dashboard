@@ -1,5 +1,5 @@
 export function renderComparisonChart( shortTermTracks, midTermTracks, longTermTracks) {
-    document.getElementById("chartLoader").style.display = "block"; 
+    document.getElementById("chartLoader").style.display = "flex"; 
     document.getElementById("chartContainer").style.display = "none"; 
 
     // Simulate async loading
@@ -84,6 +84,6 @@ export function renderComparisonChart( shortTermTracks, midTermTracks, longTermT
 
         //Hide loader, show chart
         document.getElementById("chartLoader").style.display = "none"; 
-        document.getElementById("chartContainer").style.display = "block"
+        document.getElementById("chartContainer").style.display = "flex"
     }, 300); 
 }
