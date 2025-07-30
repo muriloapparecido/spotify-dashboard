@@ -119,6 +119,9 @@ h2 {
     width: 60px;
     height: 60px;
     animation: spin 1s linear infinite;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
   }
 
   @keyframes spin {
@@ -136,20 +139,13 @@ h2 {
     overflow: visible; 
 }
 
-.loader{
-    height: 100%; 
-    width: 100%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-}
-
 canvas {
-    max-width: 500px;
+    max-width: 600px;
     max-height: 200px;
     width: 100%;  
     height: auto;
     pointer-events: auto; 
+
 }
 
 .chart-container {
@@ -159,7 +155,9 @@ canvas {
     height: 500px;
     pointer-events: none;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    margin-top: 20px; 
+
   }
 
 
