@@ -28,6 +28,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'auth.html'));
 });
 
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
+});
+
 
 // Define a POST route to exchange authorization code for access + refresh tokens
 app.post('/api/token', async (req, res) =>{

@@ -53,7 +53,7 @@ function showErrorPopup() {
       sessionStorage.setItem('access_token', data.access_token);
       sessionStorage.setItem('refresh_token', data.refresh_token);
       sessionStorage.setItem('expires_at', expiresAt.toString()); 
-      window.location.href = '/index.html';
+      window.location.href = '/dashboard';
     } else {
       console.error('Failed to get access token: ', data); 
       showErrorPopup(); 
