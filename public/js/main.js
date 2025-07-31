@@ -88,13 +88,15 @@ async function submitPlaylistName() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);     
 
     if (isMobile) {
-    // Try to open Spotify app
-    window.location.href = `spotify://playlist/${playlistId}`;
-
-    // Fallback to web player after a delay (in case app isn’t installed)
+    // Wait before attempting deep link
     setTimeout(() => {
-        window.location.href = url;
-    }, 1500);
+        window.location.href = `spotify://playlist/${playlistId}`;
+    
+        // Fallback to web link
+        setTimeout(() => {
+            window.open(url, '_blank');
+        }, 1500);
+      }, 500); // Delay before trying to open the app
     } else {
     // Desktop: open in new tab
     window.open(url, '_blank');
