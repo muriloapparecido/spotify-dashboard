@@ -1,20 +1,5 @@
 import { clientId, redirectUri} from './config.js'; 
 
-//check if backend is awake
-const loadingOverlay = document.getElementById('server-loading');
-fetch('/api/ping')
-  .then(res => {
-    if (res.ok) {
-      loadingOverlay.style.display = 'none';    //Remove server-loading styling, server is awake
-    } else {
-      loadingOverlay.innerText = 'Server error. Try again.';
-    }
-  })
-  .catch(() => {    //runs when server is asleep
-    loadingOverlay.innerText = 'Still waking up...';
-  });
-
-
 //Code verifier
 (async () => {
     const generateRandomString = (length) => {
