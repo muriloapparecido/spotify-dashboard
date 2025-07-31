@@ -65,7 +65,7 @@ function openNamePopup() {
     document.getElementById('name-popup').classList.remove('hidden');
   }
   
-  // User clicks "Create" in popup
+// User clicks "Create" in popup
 async function submitPlaylistName() {
     const name = document.getElementById('playlist-name-input').value.trim();
     const timeRange = sessionStorage.getItem('time_range') || 'short_term'; 
@@ -83,7 +83,22 @@ async function submitPlaylistName() {
 
     const playlistId = await createPlaylist(finalName, description);
     const url = `https://open.spotify.com/playlist/${playlistId}`;
-    window.open(url, '_blank');  // open in new tab
+
+    // Check device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);     
+
+    if (isMobile) {
+    // Try to open Spotify app
+    window.location.href = `spotify://playlist/${playlistId}`;
+
+    // Fallback to web player after a delay (in case app isn’t installed)
+    setTimeout(() => {
+        window.location.href = url;
+    }, 1500);
+    } else {
+    // Desktop: open in new tab
+    window.open(url, '_blank');
+    }
 
     showSuccessPopup(`Playlist "${finalName}" created!`);
 

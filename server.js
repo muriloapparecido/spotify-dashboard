@@ -32,10 +32,6 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'dashboard.html'));
 });
 
-//communicate to check if server is awake, i.e. server returns 200
-app.get('/api/ping', (req, res) => {
-  res.status(200).send('OK');  
-})
 
 
 // Define a POST route to exchange authorization code for access + refresh tokens
