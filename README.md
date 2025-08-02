@@ -39,26 +39,47 @@ A sleek and interactive web app that visualizes your Spotify listening data, inc
 
 ## 📁 Folder Structure
 public/
+
 ├── auth.html # Login page
+
 ├── callback.html #Loading page
+
 ├── dashboard.html #Main dashboard
+
 ├── css
+
 │   │   ├── auth.css #Auth screen styling
+
 │   │   ├── callback.css #Loading screen styling
+
 │   │   └── styles.css #Main dashboard styling
+
 │   ├── imgs
+
 │   │   └── default-avatar.png #Profile image for when user's image isn't fetched
+
 │   └── js
+
 │       ├── auth.js  # Handles login flow and token exchange
+
 │       ├── callback.js # Processes the redirect from Spotify after login.
+
 │       ├── config.js # Stores reusable config values like Spotify client ID and redirect URI.
+
 │       ├── fetchTopArtists.js # Fetches and formats the user's top Spotify artists from the Web API.
+
 │       ├── fetchTopTracks.js # Fetches and formats the user's top Spotify songs from the Web API.
+
 │       ├── fetchUserProfile.js #  Retrieves the logged-in user's profile information (name, email, profile image).
+
 │       ├── main.js # Coordinates data fetching, chart rendering, and UI behavior once user is authenticated.
+
 │       ├── playlists.js # Handles playlist creation and modification via the Spotify API.
+
 │       ├── topGenre.js # Analyzes the user's top artists to infer their top music genres.
+
 │       └── trackChart.js # Uses Chart.js to render a bar or line chart of the user’s top tracks.
+
 └── server.js # Express server
 
 ---
